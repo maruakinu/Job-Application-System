@@ -1,6 +1,14 @@
 <?php
 
-//Including Database Connection From db.php file to avoid rewriting in all files
+//To Handle Session Variables on This Page
+session_start();
+
+if(empty($_SESSION['id_admin'])) {
+	header("Location: index.php");
+	exit();
+}
+
+
 require_once("../db.php");
 
 //if user Actually clicked Add Post Button
@@ -25,7 +33,7 @@ if(isset($_POST)) {
 	if($stmt->execute()) {
 		//If data Inserted successfully then redirect to dashboard
 		$_SESSION['jobPostSuccess'] = true;
-		header("Location: ../index.php");
+		header("Location: index.php");
 		exit();
 	} else {
 		//If data failed to insert then show that error. Note: This condition should not come unless we as a developer make mistake or someone tries to hack their way in and mess up :D

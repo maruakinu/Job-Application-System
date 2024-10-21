@@ -79,6 +79,7 @@ require_once("../db.php");
               <div class="box-body no-padding">
                 <ul class="nav nav-pills nav-stacked">
                   <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                  <li><a href="create-job-post.php"><i class="fa fa-file-o"></i> Create Job Post</a></li>
                   <li><a href="active-jobs.php"><i class="fa fa-briefcase"></i> Active Jobs</a></li>
                   <li><a href="applications.php"><i class="fa fa-address-card-o"></i> Applications</a></li>
                   <li class="active"><a href="companies.php"><i class="fa fa-building"></i> Companies</a></li>

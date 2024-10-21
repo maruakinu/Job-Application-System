@@ -59,7 +59,7 @@ require_once("../db.php");
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-              
+
         </ul>
       </div>
     </nav>
@@ -78,11 +78,12 @@ require_once("../db.php");
               </div>
               <div class="box-body no-padding">
                 <ul class="nav nav-pills nav-stacked">
-                  <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                  <li class="active"><a href="active-jobs.php"><i class="fa fa-briefcase"></i> Active Jobs</a></li>
-                  <li><a href="applications.php"><i class="fa fa-address-card-o"></i> Applications</a></li>
-                  <li><a href="companies.php"><i class="fa fa-building"></i> Companies</a></li>
-                  <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
+                <li class="active"><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                    <li><a href="create-job-post.php"><i class="fa fa-file-o"></i> Create Job Post</a></li>
+                    <li><a href="active-jobs.php"><i class="fa fa-briefcase"></i> Active Jobs</a></li>
+                    <li><a href="jobs-applications.php"><i class="fa fa-address-card-o"></i> Job Applications</a></li>
+                    <li><a href="applications.php"><i class="fa fa-address-card-o"></i> Students</a></li>
+                    <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
                 </ul>
               </div>
             </div>
@@ -96,14 +97,12 @@ require_once("../db.php");
                   <table id="example2" class="table table-hover">
                     <thead>
                       <th>Job Name</th>
-                      <th>Company Name</th>
                       <th>Date Created</th>
-                      <th>View</th>
                       <th>Delete</th>
                     </thead>
                     <tbody>
                       <?php
-                      $sql = "SELECT job_post.*, company.companyname FROM job_post INNER JOIN company ON job_post.id_company=company.id_company";
+                      $sql = "SELECT job_post.* FROM job_post";
                       $result = $conn->query($sql);
                       if($result->num_rows > 0) {
                         $i = 0;
@@ -111,16 +110,14 @@ require_once("../db.php");
                       ?>
                       <tr>
                         <td><?php echo $row['jobtitle']; ?></td>
-                        <td><?php echo $row['companyname']; ?></td>
                         <td><?php echo date("d-M-Y", strtotime($row['createdat'])); ?></td>
-                        <td><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-address-card-o"></i></a></td>
                         <td><a href="delete-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-trash"></i></a></td>
-                      </tr>  
+                      </tr>
                             <?php
                         }
                       }
                     ?>
-                    </tbody>                    
+                    </tbody>
                   </table>
                 </div>
               </div>
@@ -142,8 +139,7 @@ require_once("../db.php");
           <div class="modal-body">
               <h3><b>Created On</b></h3>
               <p>24/04/2017</p>
-              <br>              
-              <h3><b>Company Name</b></h3>
+              <br>
               <p>XYX Private Limited</p>
               <br>
               <h3><b>Company Email</b></h3>
@@ -169,15 +165,14 @@ require_once("../db.php");
       <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
-    
+
 
   </div>
   <!-- /.content-wrapper -->
 
   <footer class="main-footer" style="margin-left: 0px;">
-    <div class="text-center">
-      <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">Job Portal</a>.</strong> All rights
-    reserved.
+  <div class="text-center">
+      <strong>Copyright &copy; 2024-2025 <a>MSEUF Career & Professional Development Center
     </div>
   </footer>
 

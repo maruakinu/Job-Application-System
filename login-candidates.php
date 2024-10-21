@@ -55,7 +55,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
       </div>
       <div class="row">
         <div class="col-xs-8">
-          <a href="#">I forgot my password</a>
+          <!-- <a href="#">I forgot my password</a> -->
         </div>
         <!-- /.col -->
         <div class="col-xs-4">

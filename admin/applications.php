@@ -78,11 +78,12 @@ require_once("../db.php");
               </div>
               <div class="box-body no-padding">
                 <ul class="nav nav-pills nav-stacked">
-                  <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                  <li><a href="active-jobs.php"><i class="fa fa-briefcase"></i> Active Jobs</a></li>
-                  <li class="active"><a href="applications.php"><i class="fa fa-address-card-o"></i> Candidates</a></li>
-                  <li><a href="companies.php"><i class="fa fa-building"></i> Companies</a></li>
-                  <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
+                <li class="active"><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                    <li><a href="create-job-post.php"><i class="fa fa-file-o"></i> Create Job Post</a></li>
+                    <li><a href="active-jobs.php"><i class="fa fa-briefcase"></i> Active Jobs</a></li>
+                    <li><a href="jobs-applications.php"><i class="fa fa-address-card-o"></i> Job Applications</a></li>
+                    <li><a href="applications.php"><i class="fa fa-address-card-o"></i> Students</a></li>
+                    <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
                 </ul>
               </div>
             </div>
@@ -194,9 +195,8 @@ require_once("../db.php");
   <!-- /.content-wrapper -->
 
   <footer class="main-footer" style="margin-left: 0px;">
-    <div class="text-center">
-      <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">JobPortal</a>.</strong> All rights
-    reserved.
+  <div class="text-center">
+      <strong>Copyright &copy; 2024-2025 <a>MSEUF Career & Professional Development Center
     </div>
   </footer>
 

@@ -77,9 +77,10 @@ require_once("../db.php");
               <div class="box-body no-padding">
                 <ul class="nav nav-pills nav-stacked">
                   <li class="active"><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                  <li><a href="create-job-post.php"><i class="fa fa-file-o"></i> Create Job Post</a></li>
                   <li><a href="active-jobs.php"><i class="fa fa-briefcase"></i> Active Jobs</a></li>
-                  <li><a href="applications.php"><i class="fa fa-address-card-o"></i> Applications</a></li>
-                  <li><a href="companies.php"><i class="fa fa-building"></i> Companies</a></li>
+                  <li><a href="jobs-applications.php"><i class="fa fa-address-card-o"></i> Job Applications</a></li>
+                  <li><a href="applications.php"><i class="fa fa-address-card-o"></i> Students</a></li>
                   <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
                 </ul>
               </div>
@@ -89,43 +90,8 @@ require_once("../db.php");
 
             <h3>Job Portal Statistics</h3>
             <div class="row">
-              <div class="col-md-6">
-                <div class="info-box bg-c-yellow">
-                  <span class="info-box-icon bg-red"><i class="ion ion-briefcase"></i></span>
-                  <div class="info-box-content">
-                    <span class="info-box-text">Active Company Registered</span>
-                    <?php
-                      $sql = "SELECT * FROM company WHERE active='1'";
-                      $result = $conn->query($sql);
-                      if($result->num_rows > 0) {
-                        $totalno = $result->num_rows;
-                      } else {
-                        $totalno = 0;
-                      }
-                    ?>
-                    <span class="info-box-number"><?php echo $totalno; ?></span>
-                  </div>
-                </div>                
-              </div>
-              <div class="col-md-6">
-                <div class="info-box bg-c-yellow">
-                  <span class="info-box-icon bg-red"><i class="ion ion-briefcase"></i></span>
-                  <div class="info-box-content">
-                    <span class="info-box-text">Pending Company Approval</span>
-                    <?php
-                      $sql = "SELECT * FROM company WHERE active='2'";
-                      $result = $conn->query($sql);
-                      if($result->num_rows > 0) {
-                        $totalno = $result->num_rows;
-                      } else {
-                        $totalno = 0;
-                      }
-                    ?>
-                    <span class="info-box-number"><?php echo $totalno; ?></span>
-                    
-                  </div>
-                </div>                
-              </div>
+             
+              
               <div class="col-md-6">
                 <div class="info-box bg-c-yellow">
                   <span class="info-box-icon bg-green"><i class="ion ion-person-stalker"></i></span>
@@ -211,9 +177,8 @@ require_once("../db.php");
   <!-- /.content-wrapper -->
 
   <footer class="main-footer" style="margin-left: 0px;">
-    <div class="text-center">
-      <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">Job Portal</a>.</strong> All rights
-    reserved.
+  <div class="text-center">
+      <strong>Copyright &copy; 2024-2025 <a>MSEUF Career & Professional Development Center
     </div>
   </footer>
 

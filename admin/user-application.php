@@ -3,17 +3,14 @@
 //To Handle Session Variables on This Page
 session_start();
 
-//If user Not logged in then redirect them back to homepage. 
-//This is required if user tries to manually enter view-job-post.php in URL.
-if(empty($_SESSION['id_company'])) {
-  header("Location: ../index.php");
-  exit();
-}
+if(empty($_SESSION['id_admin'])) {
+    header("Location: index.php");
+    exit();
+  }
+  
+  require_once("../db.php");
 
-//Including Database Connection From db.php file to avoid rewriting in all files  
-require_once("../db.php");
-
-$sql = "SELECT * FROM apply_job_post WHERE id_company='$_SESSION[id_company]' AND id_user='$_GET[id]'";
+$sql = "SELECT * FROM apply_job_post WHERE id_user='$_GET[id]'";
 $result = $conn->query($sql);
 if($result->num_rows == 0) 
 {
@@ -87,18 +84,15 @@ if($result->num_rows == 0)
           <div class="col-md-3">
             <div class="box box-solid">
               <div class="box-header with-border">
-                <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
+              <h3 class="box-title">Welcome <b>Admin</b></h3>
               </div>
               <div class="box-body no-padding">
                 <ul class="nav nav-pills nav-stacked">
-                  <li><a href="index.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                  <li><a href="edit-company.php"><i class="fa fa-tv"></i> My Company</a></li>
+                    <li class="active"><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                   <li><a href="create-job-post.php"><i class="fa fa-file-o"></i> Create Job Post</a></li>
-                  <li class="active"><a href="my-job-post.php"><i class="fa fa-file-o"></i> My Job Post</a></li>
-                  <li><a href="job-applications.php"><i class="fa fa-file-o"></i> Job Application</a></li>
-                  <li><a href="mailbox.php"><i class="fa fa-envelope"></i> Mailbox</a></li>
-                  <li><a href="settings.php"><i class="fa fa-gear"></i> Settings</a></li>
-                  <li><a href="resume-database.php"><i class="fa fa-user"></i> Resume Database</a></li>
+                  <li><a href="active-jobs.php"><i class="fa fa-briefcase"></i> Active Jobs</a></li>
+                  <li><a href="jobs-applications.php"><i class="fa fa-address-card-o"></i> Job Applications</a></li>
+                  <li><a href="applications.php"><i class="fa fa-address-card-o"></i> Students</a></li>
                   <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
                 </ul>
               </div>
@@ -120,7 +114,7 @@ if($result->num_rows == 0)
                   <h2><b><i><?php echo $row['firstname']. ' '.$row['lastname']; ?></i></b></h2>
                 </div>
                 <div class="pull-right">
-                  <a href="job-applications.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a>
+                  <a href="jobs-applications.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a>
                 </div>
                 <div class="clearfix"></div>
                 <hr>
@@ -170,7 +164,7 @@ if($result->num_rows == 0)
 
   <footer class="main-footer" style="margin-left: 0px;">
     <div class="text-center">
-      <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">Job Portal</a>.</strong> All rights
+      <strong>Copyright &copy; 2024-2025 <a href="learningfromscratch.online">Job Portal</a>.</strong> All rights
     reserved.
     </div>
   </footer>

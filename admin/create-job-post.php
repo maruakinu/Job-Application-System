@@ -4,13 +4,17 @@
 session_start();
 
 //If user Not logged in then redirect them back to homepage. 
-//This is required if user tries to manually enter view-job-post.php in URL.
-if(empty($_SESSION['id_company'])) {
-  header("Location: ../index.php");
-  exit();
+// if(empty($_SESSION['id_company'])) {
+//   header("Location: ../index.php");
+//   exit();
+// }
+
+if(empty($_SESSION['id_admin'])) {
+	header("Location: index.php");
+	exit();
 }
 
-//Including Database Connection From db.php file to avoid rewriting in all files  
+
 require_once("../db.php");
 ?>
 <!DOCTYPE html>
@@ -27,14 +31,17 @@ require_once("../db.php");
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../css/AdminLTE.min.css">
   <link rel="stylesheet" href="../css/_all-skins.min.css">
   <!-- Custom -->
   <link rel="stylesheet" href="../css/custom.css">
-  
+
+  <script src="../js/tinymce/tinymce.min.js"></script>
+
+  <script>tinymce.init({ selector:'#description', height: 300 });</script>
+
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -64,7 +71,7 @@ require_once("../db.php");
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-                  
+                   
         </ul>
       </div>
     </nav>
@@ -79,56 +86,48 @@ require_once("../db.php");
           <div class="col-md-3">
             <div class="box box-solid">
               <div class="box-header with-border">
-                <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
+              <h3 class="box-title">Welcome <b>Admin</b></h3>
               </div>
               <div class="box-body no-padding">
                 <ul class="nav nav-pills nav-stacked">
-                  <li><a href="index.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                  <li><a href="edit-company.php"><i class="fa fa-tv"></i> My Company</a></li>
-                  <li><a href="create-job-post.php"><i class="fa fa-file-o"></i> Create Job Post</a></li>
-                  <li class="active"><a href="my-job-post.php"><i class="fa fa-file-o"></i> My Job Post</a></li>
-                  <li><a href="job-applications.php"><i class="fa fa-file-o"></i> Job Application</a></li>
-                  <li><a href="mailbox.php"><i class="fa fa-envelope"></i> Mailbox</a></li>
-                  <li><a href="settings.php"><i class="fa fa-gear"></i> Settings</a></li>
-                  <li><a href="resume-database.php"><i class="fa fa-user"></i> Resume Database</a></li>
-                  <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
+                <li class="active"><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                    <li><a href="create-job-post.php"><i class="fa fa-file-o"></i> Create Job Post</a></li>
+                    <li><a href="active-jobs.php"><i class="fa fa-briefcase"></i> Active Jobs</a></li>
+                    <li><a href="jobs-applications.php"><i class="fa fa-address-card-o"></i> Job Applications</a></li>
+                    <li><a href="applications.php"><i class="fa fa-address-card-o"></i> Students</a></li>
+                    <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="col-md-9 bg-white padding-2">
-            <h2><i>My Job Posts</i></h2>
-            <p>In this section you can view all job posts created by you.</p>
-            <div class="row margin-top-20">
-              <div class="col-md-12">
-                <div class="box-body table-responsive no-padding">
-                  <table id="example2" class="table table-hover">
-                    <thead>
-                      <th>Job Title</th>
-                      <th>View</th>
-                    </thead>
-                    <tbody>
-                    <?php
-                     $sql = "SELECT * FROM job_post WHERE id_company='$_SESSION[id_company]'";
-                      $result = $conn->query($sql);
-
-                      //If Job Post exists then display details of post
-                      if($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) 
-                        {
-                      ?>
-                      <tr>
-                        <td><?php echo $row['jobtitle']; ?></td>
-                        <td><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-address-card-o"></i></a></td>
-                      </tr>
-                      <?php
-                       }
-                     }
-                     ?>
-                    </tbody>                    
-                  </table>
+            <h2><i>Create Job Post</i></h2>
+            <div class="row">
+              <form method="post" action="addpost.php">
+                <div class="col-md-12 latest-job ">
+                  <div class="form-group">
+                    <input class="form-control input-lg" type="text" id="jobtitle" name="jobtitle" placeholder="Job Title">
+                  </div>
+                  <div class="form-group">
+                    <textarea class="form-control input-lg" id="description" name="description" placeholder="Job Description"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <input type="number" class="form-control  input-lg" id="minimumsalary" min="1000" autocomplete="off" name="minimumsalary" placeholder="Minimum Salary" required="">
+                  </div>
+                  <div class="form-group">
+                    <input type="number" class="form-control  input-lg" id="maximumsalary" name="maximumsalary" placeholder="Maximum Salary" required="">
+                  </div>
+                  <div class="form-group">
+                <input type="number" class="form-control  input-lg" id="experience" autocomplete="off" name="experience" placeholder="Experience (in Years) Required" required="">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control  input-lg" id="qualification" name="qualification" placeholder="Qualification Required" required="">
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-flat btn-success">Create</button>
+                  </div>
                 </div>
-              </div>
+              </form>
             </div>
             
           </div>
@@ -136,16 +135,14 @@ require_once("../db.php");
       </div>
     </section>
 
-
     
 
   </div>
   <!-- /.content-wrapper -->
 
   <footer class="main-footer" style="margin-left: 0px;">
-    <div class="text-center">
-      <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">Job Portal</a>.</strong> All rights
-    reserved.
+  <div class="text-center">
+      <strong>Copyright &copy; 2024-2025 <a>MSEUF Career & Professional Development Center
     </div>
   </footer>
 
@@ -161,23 +158,7 @@ require_once("../db.php");
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- DataTables -->
-<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../js/adminlte.min.js"></script>
-
-
-<script>
-  $(function () {
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    });
-  });
-</script>
 </body>
 </html>

@@ -114,13 +114,7 @@ require_once("db.php");
               </div>
               <div class="box-body no-padding">
                 <ul class="nav nav-pills nav-stacked tree" data-widget="tree">
-                  <li class="treeview menu-open">
-                    <a href="#"><i class="fa fa-plane text-red"></i> City <span class="pull-right"><i class="fa fa-angle-down pull-right"></i></span></a>
-                    <ul class="treeview-menu">
-                      <li><a href=""  class="citySearch" data-target="Delhi"><i class="fa fa-circle-o text-yellow"></i> Delhi</a></li>
-                      <li><a href="" class="citySearch" data-target="Kouba"><i class="fa fa-circle-o text-yellow"></i> Kouba</a></li>
-                    </ul>
-                  </li>
+                 
                   <li class="treeview menu-open">
                     <a href="#"><i class="fa fa-plane text-red"></i> Experience <span class="pull-right"><i class="fa fa-angle-down pull-right"></i></span></a>
                     <ul class="treeview-menu">
@@ -175,9 +169,8 @@ require_once("db.php");
   <!-- /.content-wrapper -->
 
   <footer class="main-footer" style="margin-left: 0px;">
-    <div class="text-center">
-      <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">Job Portal</a>.</strong> All rights
-    reserved.
+  <div class="text-center">
+      <strong>Copyright &copy; 2024-2025 <a>MSEUF Career & Professional Development Center
     </div>
   </footer>
 
@@ -237,21 +230,6 @@ require_once("db.php");
     e.preventDefault();
     var searchResult = $(this).data("target");
     var filter = "experience";
-    if(searchResult != "") {
-      $("#pagination").twbsPagination('destroy');
-      Search(searchResult, filter);
-    } else {
-      $("#pagination").twbsPagination('destroy');
-      Pagination();
-    }
-  });
-</script>
-
-<script>
-  $(".citySearch").on("click", function(e) {
-    e.preventDefault();
-    var searchResult = $(this).data("target");
-    var filter = "city";
     if(searchResult != "") {
       $("#pagination").twbsPagination('destroy');
       Search(searchResult, filter);

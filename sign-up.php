@@ -96,7 +96,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
       <div class="container">
         <div class="row latest-job margin-top-50 margin-bottom-20">
           <h1 class="text-center margin-bottom-20">Sign Up</h1>
-          <div class="col-md-6 latest-job ">
+          <div class="col-md-12 latest-job ">
             <div class="small-box bg-yellow padding-5">
               <div class="inner">
                 <h3 class="text-center">User Registration</h3>
@@ -106,16 +106,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
               </a>
             </div>
           </div>
-          <div class="col-md-6 latest-job ">
-            <div class="small-box bg-red padding-5">
-              <div class="inner">
-                <h3 class="text-center">Company Registration</h3>
-              </div>
-              <a href="register-company.php" class="small-box-footer">
-                Register <i class="fa fa-arrow-circle-right"></i>
-              </a>
-            </div>
-          </div>
+         
         </div>
       </div>
     </section>
@@ -126,9 +117,8 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
   <!-- /.content-wrapper -->
 
   <footer class="main-footer" style="margin-left: 0px;">
-    <div class="text-center">
-      <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">Job Portal</a>.</strong> All rights
-    reserved.
+  <div class="text-center">
+      <strong>Copyright &copy; 2024-2025 <a>MSEUF Career & Professional Development Center
     </div>
   </footer>
 
