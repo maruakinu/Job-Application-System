@@ -180,10 +180,10 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
                 <input class="form-control input-lg" type="text" id="designation" name="designation" placeholder="Designation">
               </div>
 
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label style="color: red;">File Format PDF Only!</label>
                 <input type="file" name="resume" class="btn btn-flat btn-danger" required>
-              </div>
+              </div> -->
             </div>
           </form>
           
@@ -197,9 +197,8 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
   <!-- /.content-wrapper -->
 
   <footer class="main-footer" style="margin-left: 0px;">
-    <div class="text-center">
-      <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">Job Portal</a>.</strong> All rights
-    reserved.
+  <div class="text-center">
+      <strong>Copyright &copy; 2024-2025 <a>MSEUF Career & Professional Development Center
     </div>
   </footer>
 

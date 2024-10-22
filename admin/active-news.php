@@ -92,28 +92,30 @@ require_once("../db.php");
           </div>
           <div class="col-md-9 bg-white padding-2">
 
-            <h3>Active Job Posts</h3>
+            <h3>Active News Posts</h3>
             <div class="row margin-top-20">
               <div class="col-md-12">
                 <div class="box-body table-responsive no-padding">
                   <table id="example2" class="table table-hover">
                     <thead>
-                      <th>Job Name</th>
+                      <th>Title</th>
+                      <th>Description</th>
                       <th>Date Created</th>
                       <th>Delete</th>
                     </thead>
                     <tbody>
                       <?php
-                      $sql = "SELECT job_post.* FROM job_post";
+                      $sql = "SELECT * FROM news";
                       $result = $conn->query($sql);
                       if($result->num_rows > 0) {
                         $i = 0;
                         while($row = $result->fetch_assoc()) {
                       ?>
                       <tr>
-                        <td><?php echo $row['jobtitle']; ?></td>
-                        <td><?php echo date("d-M-Y", strtotime($row['createdat'])); ?></td>
-                        <td><a href="delete-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-trash"></i></a></td>
+                        <td><?php echo $row['title']; ?></td>
+                        <td><?php echo $row['description']; ?></td>
+                        <td><?php echo date("d-M-Y", strtotime($row['datecreated'])); ?></td>
+                        <td><a href="delete-news-posts.php?id=<?php echo $row['id']; ?>"><i class="fa fa-trash"></i></a></td>
                       </tr>
                             <?php
                         }

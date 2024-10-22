@@ -201,15 +201,44 @@ require_once("db.php");
           </div>
         </div>
         <div class="row">
+        <?php 
+          /* Show any 4 random job post
+           * 
+           * Store sql query result in $result variable and loop through it if we have any rows
+           * returned from database. $result->num_rows will return total number of rows returned from database.
+          */
+          $sql = "SELECT * FROM news Order By Rand() Limit 6";
+          $result = $conn->query($sql);
+          if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) 
+            {
+              // $sql1 = "SELECT * FROM company WHERE id_company='$row[id_company]'";
+              // $result1 = $conn->query($sql1);
+              // if($result1->num_rows > 0) {
+              //   while($row1 = $result1->fetch_assoc()) 
+              //   {
+             ?>
           <div class="col-sm-4 col-md-4">
             <div class="thumbnail company-img">
-              <img src="img/postjob.png" alt="Browse Jobs">
+              <!-- <img src="img/postjob.png" alt="Browse Jobs"> -->
               <div class="caption">
-                <h3 class="text-center">Post A Job</h3>
+                <h3 class="text-center"><?php echo $row['description']; ?></h3>
+              </div>
+              <div class="caption">
+                <h3 class="text-center"><?php echo $row['title']; ?></h3>
               </div>
             </div>
           </div>
-          <div class="col-sm-4 col-md-4">
+
+          <?php
+              // }
+            }
+            }
+          // }
+          ?>
+
+
+          <!-- <div class="col-sm-4 col-md-4">
             <div class="thumbnail company-img">
               <img src="img/manage.jpg" alt="Apply & Get Interviewed">
               <div class="caption">
@@ -224,7 +253,7 @@ require_once("db.php");
                 <h3 class="text-center">Hire</h3>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>

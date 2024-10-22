@@ -79,11 +79,13 @@ require_once("../db.php");
               <div class="box-body no-padding">
                 <ul class="nav nav-pills nav-stacked">
                 <li class="active"><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                    <li><a href="create-job-post.php"><i class="fa fa-file-o"></i> Create Job Post</a></li>
-                    <li><a href="active-jobs.php"><i class="fa fa-briefcase"></i> Active Jobs</a></li>
-                    <li><a href="jobs-applications.php"><i class="fa fa-address-card-o"></i> Job Applications</a></li>
-                    <li><a href="applications.php"><i class="fa fa-address-card-o"></i> Students</a></li>
-                    <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
+                  <li><a href="create-job-post.php"><i class="fa fa-file-o"></i> Create Job Post</a></li>
+                  <li><a href="create-news-post.php"><i class="fa fa-file-o"></i> Create News</a></li>
+                  <li><a href="active-jobs.php"><i class="fa fa-briefcase"></i> Active Jobs</a></li>
+                  <li><a href="active-news.php"><i class="fa fa-briefcase"></i> Active News</a></li>
+                  <li><a href="jobs-applications.php"><i class="fa fa-address-card-o"></i> Job Applications</a></li>
+                  <li><a href="applications.php"><i class="fa fa-address-card-o"></i> Students</a></li>
+                  <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
                 </ul>
               </div>
             </div>
@@ -101,7 +103,9 @@ require_once("../db.php");
                       <th>Skills</th>
                       <th>City</th>
                       <th>State</th>
-                      <th>Download Resume</th>
+                      <!-- <th>Download Resume</th> -->
+                      <th>Status</th>
+                      <th>Action</th>
                     </thead>
                     <tbody>
                       <?php
@@ -127,11 +131,26 @@ require_once("../db.php");
                         </td>
                         <td><?php echo $row['city']; ?></td>
                         <td><?php echo $row['state']; ?></td>
-                        <?php if($row['resume'] != '') { ?>
+
+
+                        <!-- <?php if($row['resume'] != '') { ?>
                         <td><a href="../uploads/resume/<?php echo $row['resume']; ?>" download="<?php echo $row['firstname'].' Resume'; ?>"><i class="fa fa-file-pdf-o"></i></a></td>
                         <?php } else { ?>
                         <td>No Resume Uploaded</td>
-                        <?php } ?>
+                        <?php } ?> -->
+
+                        <?php if($row['active'] == '1') { ?>
+                        <td style="color: green;">Active</td>
+                        <?php } else if($row['active'] == '2') { ?>
+                        <td>DeActivated</td>
+                        <td><a href="update-user.php?id=<?php echo $row['id_user']; ?>"><i class="fa fa-check"></i></a></td>
+                        <?php } else if($row['active'] == '0') {?>
+                          <td style="color: red;">InActive</td>
+                          <td><a href="update-user.php?id=<?php echo $row['id_user']; ?>"><i class="fa fa-check"></i></a></td>
+                        <?php }?>
+
+
+                        <!-- <td><a href="delete-news-posts.php?id=<?php echo $row['id_user']; ?>"><i class="fa fa-check"></i></a></td> -->
                       </tr>
 
                       <?php
