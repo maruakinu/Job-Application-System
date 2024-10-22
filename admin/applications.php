@@ -59,7 +59,7 @@ require_once("../db.php");
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-                   
+
         </ul>
       </div>
     </nav>
@@ -92,35 +92,33 @@ require_once("../db.php");
           </div>
           <div class="col-md-9 bg-white padding-2">
 
-            <h3>Candidates Database</h3>
+            <h3>Students</h3>
             <div class="row margin-top-20">
               <div class="col-md-12">
                 <div class="box-body table-responsive no-padding">
                   <table id="example2" class="table table-hover">
                     <thead>
-                      <th>Candidate</th>
+                      <th>Student Name</th>
                       <th>Highest Qualification</th>
                       <th>Skills</th>
-                      <th>City</th>
-                      <th>State</th>
-                      <!-- <th>Download Resume</th> -->
+                      <th>Year</th>
+                      <th>Department</th>
                       <th>Status</th>
-                      <th>Action</th>
+                      <th>Action</th> 
                     </thead>
                     <tbody>
                       <?php
-                       $sql = "SELECT * FROM users";
-                            $result = $conn->query($sql);
+                      $sql = "SELECT * FROM users";
+                      $result = $conn->query($sql);
+                      if($result->num_rows > 0) {
+                        $i = 0;
+                        while($row = $result->fetch_assoc()) {
 
-                            if($result->num_rows > 0) {
-                              while($row = $result->fetch_assoc()) 
-                              {     
-
-                                $skills = $row['skills'];
+                          $skills = $row['skills'];
                                 $skills = explode(',', $skills);
                       ?>
                       <tr>
-                        <td><?php echo $row['firstname'].' '.$row['lastname']; ?></td>
+                      <td><?php echo $row['firstname'].' '.$row['lastname']; ?></td>
                         <td><?php echo $row['qualification']; ?></td>
                         <td>
                           <?php
@@ -129,18 +127,12 @@ require_once("../db.php");
                           }
                           ?>
                         </td>
-                        <td><?php echo $row['city']; ?></td>
-                        <td><?php echo $row['state']; ?></td>
-
-
-                        <!-- <?php if($row['resume'] != '') { ?>
-                        <td><a href="../uploads/resume/<?php echo $row['resume']; ?>" download="<?php echo $row['firstname'].' Resume'; ?>"><i class="fa fa-file-pdf-o"></i></a></td>
-                        <?php } else { ?>
-                        <td>No Resume Uploaded</td>
-                        <?php } ?> -->
+                        <td><?php echo $row['designation']; ?></td>
+                        <td><?php echo $row['stream']; ?></td>
 
                         <?php if($row['active'] == '1') { ?>
                         <td style="color: green;">Active</td>
+                        <td><a href="update-user-inactive.php?id=<?php echo $row['id_user']; ?>"><i class="fa fa-trash"></i></a></td>
                         <?php } else if($row['active'] == '2') { ?>
                         <td>DeActivated</td>
                         <td><a href="update-user.php?id=<?php echo $row['id_user']; ?>"><i class="fa fa-check"></i></a></td>
@@ -148,18 +140,12 @@ require_once("../db.php");
                           <td style="color: red;">InActive</td>
                           <td><a href="update-user.php?id=<?php echo $row['id_user']; ?>"><i class="fa fa-check"></i></a></td>
                         <?php }?>
-
-
-                        <!-- <td><a href="delete-news-posts.php?id=<?php echo $row['id_user']; ?>"><i class="fa fa-check"></i></a></td> -->
                       </tr>
-
-                      <?php
-
+                            <?php
                         }
                       }
-                      ?>
-                      
-                    </tbody>                    
+                    ?>
+                    </tbody>
                   </table>
                 </div>
               </div>
@@ -176,20 +162,19 @@ require_once("../db.php");
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Candidate Profile</h4>
+            <h4 class="modal-title">Job Title</h4>
           </div>
           <div class="modal-body">
-              <h3><b>Applied On</b></h3>
+              <h3><b>Created On</b></h3>
               <p>24/04/2017</p>
               <br>
-              <h3><b>Email</b></h3>
+              <p>XYX Private Limited</p>
+              <br>
+              <h3><b>Company Email</b></h3>
               <p>test@test.com</p>
               <br>
-              <h3><b>Phone</b></h3>
-              <p>44907512447</p>
-              <br>
-              <h3><b>Website</b></h3>
-              <p>learningfromscratch.online</p>
+              <h3><b>Location</b></h3>
+              <p>India</p>
               <br>
               <h3><b>Application Message</b></h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -208,7 +193,7 @@ require_once("../db.php");
       <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
-    
+
 
   </div>
   <!-- /.content-wrapper -->
@@ -241,7 +226,7 @@ require_once("../db.php");
     $('#example2').DataTable({
       'paging'      : true,
       'lengthChange': false,
-      'searching'   : false,
+      'searching'   : true,
       'ordering'    : true,
       'info'        : true,
       'autoWidth'   : false

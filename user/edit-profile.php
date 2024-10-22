@@ -141,7 +141,7 @@ require_once("../db.php");
                     <input type="text" class="form-control input-lg" id="qualification" name="qualification" placeholder="Highest Qualification" value="<?php echo $row['qualification']; ?>">
                   </div>
                   <div class="form-group">
-                    <label for="stream">Stream</label>
+                    <label for="stream">Department</label>
                     <input type="text" class="form-control input-lg" id="stream" name="stream" placeholder="stream" value="<?php echo $row['stream']; ?>">
                   </div>
                   <div class="form-group">

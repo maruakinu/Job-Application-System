@@ -125,7 +125,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
                 <input class="form-control input-lg" type="text" id="qualification" name="qualification" placeholder="Highest Qualification">
               </div>
               <div class="form-group">
-                <input class="form-control input-lg" type="text" id="stream" name="stream" placeholder="Stream">
+                <input class="form-control input-lg" type="text" id="stream" name="stream" placeholder="Department">
               </div>                    
               <div class="form-group checkbox">
                 <label><input type="checkbox"> I accept terms & conditions</label>
@@ -175,10 +175,19 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
               </div>
               <div class="form-group">
                 <textarea class="form-control input-lg" rows="4" id="skills" name="skills" placeholder="Enter Skills"></textarea>
-              </div>              
+              </div>             
               <div class="form-group">
+                <select class="form-control input-lg" id="designation" name="designation">
+                    <option value="" disabled selected>Select Year</option>
+                    <option value="1st year">1st Year</option>
+                    <option value="2nd year">2nd Year</option>
+                    <option value="3rd year">3rd Year</option>
+                    <option value="4th year">4th Year</option>
+                </select>
+            </div> 
+              <!-- <div class="form-group">
                 <input class="form-control input-lg" type="text" id="designation" name="designation" placeholder="Designation">
-              </div>
+              </div> -->
 
               <!-- <div class="form-group">
                 <label style="color: red;">File Format PDF Only!</label>

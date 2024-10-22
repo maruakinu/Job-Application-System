@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2024 at 02:16 AM
+-- Generation Time: Oct 22, 2024 at 02:34 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -48758,6 +48758,29 @@ CREATE TABLE `mailbox` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `datecreated` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `description`, `title`, `datecreated`) VALUES
+(6, 'Sample Description', 'Sample Title', '2024-10-22 09:28:14'),
+(7, 'Another Description', 'Another Title', '2024-10-22 09:29:08'),
+(8, 'Find your ideal job at Jobstreet with 1133 Student jobs found in Philippines.', 'Student Job Applications', '2024-10-22 09:59:31'),
+(9, 'Intramurals are student competitions that provide exercise, recreation, and fun in a relaxed, yet structured environment.', 'Student Intamurals', '2024-10-22 10:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `reply_mailbox`
 --
 
@@ -48816,7 +48839,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `firstname`, `lastname`, `email`, `password`, `address`, `city`, `state`, `contactno`, `qualification`, `stream`, `passingyear`, `dob`, `age`, `designation`, `resume`, `hash`, `active`, `aboutme`, `skills`) VALUES
-(1, 'Oleg', 'Hubbard', 'oleg@test.com', 'ZTM4OGYwMmY3NTBlNjVlYmJhOTVhYjk0OTNjZGEwMWU=', 'P.O. Box 624, 5657 Dui. Rd.', 'Erchie', 'Uruguay', '07469 796052', 'amet luctus', 'non, lobortis', '2010', '1994-03-24 17:34:04', NULL, NULL, '67144bbe029c1.', NULL, 1, 'Nothing', 'Programming');
+(1, 'Oleg', 'Hubbard', 'oleg@test.com', 'ZTM4OGYwMmY3NTBlNjVlYmJhOTVhYjk0OTNjZGEwMWU=', 'P.O. Box 624, 5657 Dui. Rd.', 'Erchie', 'Uruguay', '07469 796052', 'amet luctus', 'non, lobortis', '2010', '1994-03-24 17:34:04', NULL, NULL, '67144bbe029c1.', NULL, 1, 'Nothing', 'Programming'),
+(101, 'First Name', 'Last Name', 'name@gmail.com', 'ZTM4OGYwMmY3NTBlNjVlYmJhOTVhYjk0OTNjZGEwMWU=', 'Philippines', 'Manila', 'Manila', '0909090909', 'Bachelor Degree', 'N/A', '2024-10-25', '1998-12-30', '25', 'None', NULL, 'd79c3ea2b67397952561b18ec6f381ab', 1, 'None', 'None'),
+(102, 'Doe', 'John', 'john@gmail.com', 'ZTM4OGYwMmY3NTBlNjVlYmJhOTVhYjk0OTNjZGEwMWU=', 'None', 'Manila', 'Manila', '0909090909', 'Bachelor Degree', 'IT', '2024-10-01', '1999-01-29', '25', '1st year', NULL, '3e6f2680042165dcde149dbecfbdfc64', 1, 'Nothing', 'Java, C++');
 
 --
 -- Indexes for dumped tables
@@ -48864,6 +48889,12 @@ ALTER TABLE `job_post`
 --
 ALTER TABLE `mailbox`
   ADD PRIMARY KEY (`id_mailbox`);
+
+--
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `reply_mailbox`
@@ -48931,6 +48962,12 @@ ALTER TABLE `mailbox`
   MODIFY `id_mailbox` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `reply_mailbox`
 --
 ALTER TABLE `reply_mailbox`
@@ -48946,7 +48983,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
