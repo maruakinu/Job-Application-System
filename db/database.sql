@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2024 at 02:34 PM
+-- Generation Time: Nov 04, 2024 at 12:37 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,24 @@ SET time_zone = "+00:00";
 --
 -- Database: `database`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `aboutus`
+--
+
+CREATE TABLE `aboutus` (
+  `id` int(11) NOT NULL,
+  `description` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `aboutus`
+--
+
+INSERT INTO `aboutus` (`id`, `description`) VALUES
+(0, 'Nice');
 
 -- --------------------------------------------------------
 
@@ -48846,6 +48864,12 @@ INSERT INTO `users` (`id_user`, `firstname`, `lastname`, `email`, `password`, `a
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `aboutus`
+--
+ALTER TABLE `aboutus`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `admin`
