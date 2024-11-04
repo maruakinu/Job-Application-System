@@ -366,13 +366,23 @@ require_once("db.php");
             <img src="img/browse.jpg" class="img-responsive">
           </div>
           <div class="col-md-6 about-text margin-bottom-20">
-            <p>
-            Welcome, where we believe that every great career starts with a perfect match! Our mission is to connect talented individuals with the right opportunities, fostering growth, innovation, and collaboration.
+          <?php 
+          /* Show any 4 random job post
+           * 
+           * Store sql query result in $result variable and loop through it if we have any rows
+           * returned from database. $result->num_rows will return total number of rows returned from database.
+          */
+          $sql = "SELECT * FROM aboutus wHERE id = 0";
+          $result = $conn->query($sql);
+          if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) 
+            {
+?>
+            <p><?php echo $row['description']; ?></p>
+            <?php 
 
-With a focus on IT Industry, we are committed to creating an inclusive and empowering platform for job seekers and employers alike. Whether you're looking for your next challenge or seeking to expand your team, our user-friendly system is designed to make the process seamless, efficient, and transparent.
-
-We value integrity, passion, and a forward-thinking approach, striving to make meaningful connections that lead to long-term success. Join us today, and let's build the future of work together!
-            </p>
+            }}
+            ?>
           </div>
         </div>
       </div>

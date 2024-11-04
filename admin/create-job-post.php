@@ -97,6 +97,7 @@ require_once("../db.php");
                   <li><a href="active-news.php"><i class="fa fa-briefcase"></i> Active News</a></li>
                   <li><a href="jobs-applications.php"><i class="fa fa-address-card-o"></i> Job Applications</a></li>
                   <li><a href="applications.php"><i class="fa fa-address-card-o"></i> Students</a></li>
+                  <li><a href="about.php"><i class="fa fa-address-card-o"></i> About Us</a></li>
                   <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
                 </ul>
               </div>
