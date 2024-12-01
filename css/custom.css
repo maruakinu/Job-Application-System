@@ -1,5 +1,5 @@
 .bg-main {
-	background: linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../img/job-search.jpg) no-repeat center center fixed !important; 
+	background: linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../img/enverga.png) no-repeat center center fixed !important; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -15,7 +15,7 @@
 	font-size: 60px;
 }
 .logo-bg {
-	background-color: maroon !important;
+	background-color: white !important;
 }
 
 .index-head > p {

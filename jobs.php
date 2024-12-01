@@ -45,39 +45,41 @@ require_once("db.php");
     <!-- Logo -->
     <a href="index.php" class="logo logo-bg">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>J</b>P</span>
+      <span>
+        <img src="./img/logo.png" alt="Logo" style="height: 50px; width: 130px;">
+      </span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Job</b> Portal</span>
+      <span class="logo-lg" style="color: #FB3535;"><b>JoPNav</b></span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
+    <nav class="navbar navbar-static-top" style="background-color: white;">
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <?php if(empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
           <li>
-            <a href="login.php">Login</a>
+            <a href="login.php" style="color: black;">Login</a>
           </li>
           <li>
-            <a href="sign-up.php">Sign Up</a>
+            <a href="sign-up.php" style="color: black;">Sign Up</a>
           </li>  
           <?php } else { 
 
             if(isset($_SESSION['id_user'])) { 
           ?>        
           <li>
-            <a href="user/index.php">Dashboard</a>
+            <a href="user/index.php" style="color: black;">Dashboard</a>
           </li>
           <?php
           } else if(isset($_SESSION['id_company'])) { 
           ?>        
           <li>
-            <a href="company/index.php">Dashboard</a>
+            <a href="company/index.php" style="color: black;">Dashboard</a>
           </li>
           <?php } ?>
           <li>
-            <a href="logout.php">Logout</a>
+            <a href="logout.php" style="color: black;">Logout</a>
           </li>
           <?php } ?>          
         </ul>
@@ -168,10 +170,10 @@ require_once("db.php");
   </div>
   <!-- /.content-wrapper -->
 
-  <footer class="main-footer" style="margin-left: 0px;">
-  <div class="text-center">
-      <strong>Copyright &copy; 2024-2025 <a>MSEUF Career & Professional Development Center
-    </div>
+  <footer style="background-color: #DF4141; margin-left: 0px;" class="main-footer">
+      <div class="text-center">
+        <b style="color: white;">@2024 JoPNav</b>
+      </div>
   </footer>
 
   <!-- /.control-sidebar -->
