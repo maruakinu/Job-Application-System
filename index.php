@@ -32,7 +32,7 @@ require_once("db.php");
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -370,11 +370,23 @@ require_once("db.php");
   </div>
   <!-- /.content-wrapper -->
 
-  <footer style="background-color: #DF4141; margin-left: 0px;" class="main-footer">
-      <div class="text-center">
-        <b style="color: white;">@2024 JoPNav</b>
-      </div>
-  </footer>
+  <footer style="background-color: #DF4141; margin-left: 0px; display: flex; justify-content: space-between; align-items: center;" class="main-footer">
+    <b style="color: white;">@2024 JoPNav</b>
+    <div>
+        <a href="https://messenger.com" target="_blank" style="margin-right: 10px;">
+            <i class="fab fa-facebook-messenger" style="color: white; font-size: 20px;"></i>
+        </a>
+        <a href="https://facebook.com" target="_blank" style="margin-right: 10px;">
+            <i class="fab fa-facebook" style="color: white; font-size: 20px;"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank">
+            <i class="fab fa-instagram" style="color: white; font-size: 20px;"></i>
+        </a>
+    </div>
+</footer>
+
+
+
 
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed

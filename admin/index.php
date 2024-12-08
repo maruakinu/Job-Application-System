@@ -58,7 +58,7 @@ if(isset($_SESSION['id_admin'])) {
       <div class="row">
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <button type="submit" style="background-color: #FB3535; border-color: transparent;" class="btn btn-primary btn-block btn-flat">Sign In</button>
         </div>
         <!-- /.col -->
       </div>

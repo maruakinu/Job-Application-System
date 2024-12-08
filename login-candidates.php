@@ -73,7 +73,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     if(isset($_SESSION['registerCompleted'])) {
       ?>
       <div>
-        <p id="successMessage" class="text-center">Check your email!</p>
+        <p id="successMessage" class="text-center">Check your Username!</p>
       </div>
     <?php
      unset($_SESSION['registerCompleted']); }
@@ -83,7 +83,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     if(isset($_SESSION['loginError'])) {
       ?>
       <div>
-        <p class="text-center">Invalid Email/Password! Try Again!</p>
+        <p class="text-center">Invalid Username/Password! Try Again!</p>
       </div>
     <?php
      unset($_SESSION['loginError']); }
