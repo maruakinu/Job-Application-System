@@ -160,8 +160,8 @@ require_once("db.php");
   <section class="content-header bg-main" style="margin-bottom: 50px;">
     <div class="container">
       <div class="row">
-        <div class="col-md-12 text-center index-head" style="color: #0F0049;">
-          <h1>MSEUF Career & Professional Development Center</h1>
+        <div class="col-md-12 text-center index-head" style="color: #0F0049; white-space: nowrap;">
+          <p style="font-size: 45px;">MSEUF Career & Professional Development Center</p>
         </div>
       </div>
       <div class="row mt-4">
