@@ -42,7 +42,51 @@ require_once("db.php");
     height: 50px;
     width: 50px;
 }
+#statistics {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh; /* Full height of the viewport */
+  padding: 50px; /* Large padding */
+  margin: 0 auto; /* Center align the container horizontally */
+  background-color: #FFC189; /* Optional background color */
+}
 
+#statistics h1 {
+  font-size: 4rem; /* Larger font size */
+  font-weight: bold;
+  color: #333; /* Darker color for contrast */
+  text-transform: uppercase; /* Optional styling */
+}
+#statistics .cta-button {
+  display: inline-block;
+  padding: 15px 30px; /* Button padding */
+  font-size: 1rem; /* Button font size */
+  font-weight: bold;
+  color: #fff; /* Text color */
+  background-color: #007bff; /* Button color */
+  border: none; /* Remove border */
+  border-radius: 18px; /* Rounded corners */
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+#statistics .cta-button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+.content-header .row > .col-md-3 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.content-header img {
+  border-radius: 8px;
+}
+.content-header img {
+    max-width: 80%; /* Adjust the percentage to control the size */
+    height: auto;   /* Maintain the aspect ratio */
+    margin: auto;   /* Center the image horizontally if necessary */
+  }
 </style>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -68,9 +112,9 @@ require_once("db.php");
           <li>
             <a href="jobs.php" style="color: black;">Jobs</a>
           </li>
-          <li>
+          <!-- <li>
             <a href="#candidates" style="color: black;">Candidates</a>
-          </li>
+          </li> -->
           <li>
             <a href="./company/create-job-post.php" style="color: black;">Employers</a>
           </li>
@@ -78,7 +122,7 @@ require_once("db.php");
             <a href="#company" style="color: black;">News</a>
           </li>
           <li>
-            <a href="#about" style="color: black;">About Us</a>
+            <a href="about.php" style="color: black;">About</a>
           </li>
           <?php if(empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
           <li>
@@ -113,30 +157,70 @@ require_once("db.php");
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="margin-left: 0px;">
 
-    <section class="content-header bg-main">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center index-head">
-            <h1>MSEUF Career & Professional Development Center</h1>
-            <!-- <p>One search, global reach</p> -->
-            <p><a class="btn btn-lg" style="background-color: maroon; color: white;" href="jobs.php" role="button">Search Jobs</a></p>
+  <section class="content-header bg-main" style="margin-bottom: 50px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center index-head" style="color: #0F0049;">
+          <h1>MSEUF Career & Professional Development Center</h1>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <!-- Picture 1 -->
+        <div class="col-md-3 text-center">
+          <div class="p-3">
+            <img src="./img/image1.png" alt="Description 1" class="img-fluid mb-5">
+            <p class="fw-bold"></p>
+          </div>
+        </div>
+        <!-- Picture 2 -->
+        <div class="col-md-3 text-center">
+          <div class="p-3">
+            <img src="./img/image2.png" alt="Description 2" class="img-fluid mb-5">
+            <p class="fw-bold"></p>
+          </div>
+        </div>
+        <!-- Picture 3 -->
+        <div class="col-md-3 text-center">
+          <div class="p-3">
+            <img src="./img/image3.png" alt="Description 3" class="img-fluid mb-5">
+            <p class="fw-bold"></p>
+          </div>
+        </div>
+        <!-- Picture 4 -->
+        <div class="col-md-3 text-center">
+          <div class="p-3">
+            <img src="./img/image4.png" alt="Description 4" class="img-fluid mb-5">
+            <p class="fw-bold"></p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="content-header">
+
+    <section id="statistics" class="content-header">
+  <div class="container text-center">
+    <h1 style="color: #0F0049;">Employers: Hire Our Students!</h1>
+    <button class="cta-button" style="background-color: #FB3535">Get Started</button>
+  </div>
+</section>
+
+<section id="company" class="content-header">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 latest-job margin-bottom-20">
-            <h1 class="text-center">Latest Jobs</h1>            
-            <?php 
+          <div class="col-md-12 text-center latest-job margin-bottom-20">
+            <h1 style="color: #0F0049;">Events & News</h1>
+            <p>Elevate Your Career! Our JobCareer & Professional Development Center is here to help you reach your full potential.</p>            
+          </div>
+        </div>
+        <div class="row">
+        <?php 
           /* Show any 4 random job post
            * 
            * Store sql query result in $result variable and loop through it if we have any rows
            * returned from database. $result->num_rows will return total number of rows returned from database.
           */
-          $sql = "SELECT * FROM job_post Order By Rand() Limit 4";
+          $sql = "SELECT * FROM news Order By Rand() Limit 6";
           $result = $conn->query($sql);
           if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) 
@@ -147,15 +231,20 @@ require_once("db.php");
               //   while($row1 = $result1->fetch_assoc()) 
               //   {
              ?>
-            <div class="attachment-block clearfix">
-              <!-- <img class="attachment-img" src="img/photo1.png" alt="Attachment Image"> -->
-              <!-- <div class="attachment-pushed"> -->
-                <h4 class="attachment-heading"><a><?php echo $row['jobtitle']; ?></a> <span class="attachment-heading pull-right">₱<?php echo $row['maximumsalary']; ?>/Month</span></h4>
-                <div class="attachment-text">
-                    <div><strong> Experience <?php echo $row['experience']; ?> Years</strong></div>
-                </div>
-              <!-- </div> -->
+          <div class="col-sm-4 col-md-4">
+            <div style="background-color: transparent; border-color: transparent;" class="thumbnail company-img">
+              <img style="width: 500px; height: 200px;" src="img/jp.png" alt="Browse Jobs"> 
+              <div class="caption">
+                <h3 class="text-center"><?php echo $row['description']; ?></h3>
+              </div>
+              <!-- <div class="caption">
+                <h3 class="text-center"><?php echo $row['title']; ?></h3>
+              </div> -->
             </div>
+          </div>
+
+          
+
           <?php
               // }
             }
@@ -163,12 +252,42 @@ require_once("db.php");
           // }
           ?>
 
-          </div>
+
+    
         </div>
       </div>
     </section>
 
-    <section id="candidates" class="content-header">
+    <!-- <section class="content-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 latest-job margin-bottom-20">
+            <h1 class="text-center">Latest Jobs</h1>            
+            <?php 
+         
+          $sql = "SELECT * FROM job_post Order By Rand() Limit 4";
+          $result = $conn->query($sql);
+          if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) 
+            {
+             
+             ?>
+            <div class="attachment-block clearfix">
+                <h4 class="attachment-heading"><a><?php echo $row['jobtitle']; ?></a> <span class="attachment-heading pull-right">₱<?php echo $row['maximumsalary']; ?>/Month</span></h4>
+                <div class="attachment-text">
+                    <div><strong> Experience <?php echo $row['experience']; ?> Years</strong></div>
+                </div>
+            </div>
+          <?php
+            }
+            }
+          ?>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- <section id="candidates" class="content-header">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center latest-job margin-bottom-20">
@@ -203,171 +322,10 @@ require_once("db.php");
           </div>
         </div>
       </div>
-    </section>
-
-    <section id="company" class="content-header">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center latest-job margin-bottom-20">
-            <h1>Events & News</h1>
-            <p>Elevate Your Career! Our JobCareer & Professional Development Center is here to help you reach your full potential.</p>            
-          </div>
-        </div>
-        <div class="row">
-        <?php 
-          /* Show any 4 random job post
-           * 
-           * Store sql query result in $result variable and loop through it if we have any rows
-           * returned from database. $result->num_rows will return total number of rows returned from database.
-          */
-          $sql = "SELECT * FROM news Order By Rand() Limit 6";
-          $result = $conn->query($sql);
-          if($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) 
-            {
-              // $sql1 = "SELECT * FROM company WHERE id_company='$row[id_company]'";
-              // $result1 = $conn->query($sql1);
-              // if($result1->num_rows > 0) {
-              //   while($row1 = $result1->fetch_assoc()) 
-              //   {
-             ?>
-          <div class="col-sm-4 col-md-4">
-            <div class="thumbnail company-img">
-              <!-- <img src="img/postjob.png" alt="Browse Jobs"> -->
-              <div class="caption">
-                <h3 class="text-center"><?php echo $row['description']; ?></h3>
-              </div>
-              <div class="caption">
-                <h3 class="text-center"><?php echo $row['title']; ?></h3>
-              </div>
-            </div>
-          </div>
-
-          <?php
-              // }
-            }
-            }
-          // }
-          ?>
-
-
-          <!-- <div class="col-sm-4 col-md-4">
-            <div class="thumbnail company-img">
-              <img src="img/manage.jpg" alt="Apply & Get Interviewed">
-              <div class="caption">
-                <h3 class="text-center">Manage & Track</h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 col-md-4">
-            <div class="thumbnail company-img">
-              <img src="img/hire.png" alt="Start A Career">
-              <div class="caption">
-                <h3 class="text-center">Hire</h3>
-              </div>
-            </div>
-          </div> -->
-        </div>
-      </div>
-    </section>
-
-    <!-- <section id="statistics" class="content-header">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center latest-job margin-bottom-20">
-            <h1>Our Statistics</h1>
-          </div>
-        </div>
-        <div class="row">
-        <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-aqua">
-            <div class="inner">
-             <?php
-                      $sql = "SELECT * FROM job_post";
-                      $result = $conn->query($sql);
-                      if($result->num_rows > 0) {
-                        $totalno = $result->num_rows;
-                      } else {
-                        $totalno = 0;
-                      }
-                    ?>
-              <h3><?php echo $totalno; ?></h3>
-
-              <p>Job Offers</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-ios-paper"></i>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-green">
-            <div class="inner">
-                  <?php
-                      $sql = "SELECT * FROM company WHERE active='1'";
-                      $result = $conn->query($sql);
-                      if($result->num_rows > 0) {
-                        $totalno = $result->num_rows;
-                      } else {
-                        $totalno = 0;
-                      }
-                    ?>
-              <h3><?php echo $totalno; ?></h3>
-
-              <p>Registered Company</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-briefcase"></i>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-yellow">
-            <div class="inner">
-             <?php
-                      $sql = "SELECT * FROM users WHERE resume!=''";
-                      $result = $conn->query($sql);
-                      if($result->num_rows > 0) {
-                        $totalno = $result->num_rows;
-                      } else {
-                        $totalno = 0;
-                      }
-                    ?>
-              <h3><?php echo $totalno; ?></h3>
-
-              <p>CV'S/Resume</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-ios-list"></i>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-red">
-            <div class="inner">
-               <?php
-                      $sql = "SELECT * FROM users WHERE active='1'";
-                      $result = $conn->query($sql);
-                      if($result->num_rows > 0) {
-                        $totalno = $result->num_rows;
-                      } else {
-                        $totalno = 0;
-                      }
-                    ?>
-              <h3><?php echo $totalno; ?></h3>
-
-              <p>Daily Users</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person-stalker"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
     </section> -->
 
-    <section id="about" class="content-header">
+
+    <!-- <section id="about" class="content-header">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center latest-job margin-bottom-20">
@@ -380,11 +338,7 @@ require_once("db.php");
           </div>
           <div class="col-md-6 about-text margin-bottom-20">
           <?php 
-          /* Show any 4 random job post
-           * 
-           * Store sql query result in $result variable and loop through it if we have any rows
-           * returned from database. $result->num_rows will return total number of rows returned from database.
-          */
+   
           $sql = "SELECT * FROM aboutus wHERE id = 0";
           $result = $conn->query($sql);
           if($result->num_rows > 0) {
@@ -399,7 +353,7 @@ require_once("db.php");
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
   </div>
   <!-- /.content-wrapper -->
