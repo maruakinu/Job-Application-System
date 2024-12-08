@@ -25,7 +25,7 @@ require_once("db.php");
   <link rel="stylesheet" href="css/AdminLTE.min.css">
   <link rel="stylesheet" href="css/_all-skins.min.css">
   <!-- Custom -->
-  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/emp.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -144,49 +144,41 @@ require_once("db.php");
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="margin-left: 0px;">
-
+    <h1 style="color: #0F0049; padding: 20px; font-weight: bold; margin-left: 120px;">Employers</h1>
     <section class="content-header bg-main">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center index-head">
-            <h1>MSEUF Career & Professional Development Center</h1>
             <!-- <p>One search, global reach</p> -->
           </div>
         </div>
       </div>
     </section>
 
-
-
     <section id="about" class="content-header">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center latest-job margin-bottom-20">
-            <h1>About MSEUF</h1>                      
+            <h2>Sed facilisi turpis id lacus</h1>                      
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6">
-            <img src="img/browse.jpg" class="img-responsive">
-          </div>
-          <div class="col-md-6 about-text margin-bottom-20">
-          <?php 
-         
-          $sql = "SELECT * FROM aboutus wHERE id = 0";
-          $result = $conn->query($sql);
-          if($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) 
-            {
-?>
-            <p><?php echo $row['description']; ?></p>
-            <?php 
-
-            }}
-            ?>
+          <div class="col-md-12 about-text margin-bottom-20">
+          Integer aenean vulputate mattis pretium et. Dictum accumsan libero nunc gravida eu nisl eu maecenas elementum. Aenean velit varius bibendum dui tristique vestibulum adipiscing odio quis. Metus mauris nam auctor ac viverra in elit scelerisque sed. Egestas sodales lectus euismod vel. Donec sit sagittis tincidunt aliquam et faucibus gravida. Pulvinar mauris integer risus magna in placerat consequat in. Malesuada ornare vel malesuada ipsum massa gravida sed. Viverra et ut ac egestas. Orci vitae et donec massa imperdiet sodales felis adipiscing urna. Et euismod facilisi diam in diam mi aliquam ut auctor. Viverra senectus id mattis laoreet a ullamcorper viverra scelerisque.
+Nullam tortor maecenas odio molestie. Ut vulputate in egestas lorem sit. Odio neque ultrices sit integer elit euismod lectus. Faucibus quisque nisi elit at proin maecenas massa. Proin nulla feugiat nisl convallis. Augue vitae mi scelerisque turpis massa sollicitudin faucibus porttitor. Lacus quis velit erat convallis non lacus. Fringilla magna amet odio tortor ac ullamcorper turpis. Sagittis vitae velit faucibus non nam maecenas diam massa ut. Tortor venenatis amet auctor sed vestibulum suspendisse fringilla nullam. Blandit gravida sed aenean nec viverra urna justo vel. Malesuada turpis morbi volutpat adipiscing sed volutpat urna. Arcu id eget eleifend sed orci. Non id faucibus est fermentum tellus at.
+Eu felis in feugiat sit sed diam malesuada pharetra consectetur. Adipiscing urna aliquet ac et nisl adipiscing lacus sem in. Quis adipiscing vestibulum dignissim quam feugiat nunc lacus. Suspendisse facilisis risus pharetra eget sit volutpat nunc nunc. Ac facilisi aliquet turpis amet diam id etiam. Velit consectetur fusce lacinia tempor consequat non. Gravida tortor lorem gravida posuere sit luctus sapien. Quisque tristique fermentum pretium quis eget mollis accumsan. Suspendisse volutpat turpis et in suspendisse leo volutpat. Eleifend consequat quis nulla tortor aenean eu ac sociis. Condimentum nunc morbi amet molestie nisi mi. Sed dignissim amet aliquam eget at. Eleifend sagittis penatibus ipsum sagittis tincidunt.
+Quam cras duis porttitor nisi platea ac. Aliquam nullam tortor volutpat aliquam nulla morbi aliquet. Ultrices eget turpis adipiscing nulla neque eros proin. Id at ullamcorper habitasse tristique adipiscing. Etiam id convallis luctus purus. Adipiscing elementum dolor turpis faucibus. Non faucibus vel morbi non morbi justo quis. Sit accumsan massa sit cursus tristique sed nunc sed.
           </div>
         </div>
       </div>
     </section>
+
+    <section id="statistics" class="content-header">
+  <div class="container text-center">
+    <h1 style="color: #0F0049;">Employers: Hire Our Students!</h1>
+    <a href="./company/create-job-post.php" class="cta-button" style="background-color: #FB3535">Get Started</a>
+  </div>
+</section>
 
   </div>
 

@@ -128,7 +128,7 @@ require_once("db.php");
             <a href="#candidates" style="color: black;">Candidates</a>
           </li> -->
           <li>
-            <a href="./company/create-job-post.php" style="color: black;">Employers</a>
+            <a href="employer.php" style="color: black;">Employers</a>
           </li>
           <li>
             <a href="#company" style="color: black;">News</a>
