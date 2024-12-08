@@ -87,6 +87,17 @@ require_once("db.php");
     height: auto;   /* Maintain the aspect ratio */
     margin: auto;   /* Center the image horizontally if necessary */
   }
+
+  /* Move first and third images up */
+.img-up {
+  margin-top: -20px; /* Adjust this value to move up more or less */
+}
+
+/* Move second and fourth images down */
+.img-down {
+  margin-top: 20px; /* Adjust this value to move down more or less */
+}
+
 </style>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -157,7 +168,7 @@ require_once("db.php");
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="margin-left: 0px;">
 
-  <section class="content-header bg-main" style="margin-bottom: 50px;">
+  <section class="content-header bg-main" style="padding-bottom: 50px;">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center index-head" style="color: #0F0049; white-space: nowrap;">
@@ -166,28 +177,28 @@ require_once("db.php");
       </div>
       <div class="row mt-4">
         <!-- Picture 1 -->
-        <div class="col-md-3 text-center">
+        <div class="col-md-3 text-center img-up">
           <div class="p-3">
             <img src="./img/image1.png" alt="Description 1" class="img-fluid mb-5">
             <p class="fw-bold"></p>
           </div>
         </div>
         <!-- Picture 2 -->
-        <div class="col-md-3 text-center">
+        <div class="col-md-3 text-center img-down">
           <div class="p-3">
             <img src="./img/image2.png" alt="Description 2" class="img-fluid mb-5">
             <p class="fw-bold"></p>
           </div>
         </div>
         <!-- Picture 3 -->
-        <div class="col-md-3 text-center">
+        <div class="col-md-3 text-center img-up">
           <div class="p-3">
             <img src="./img/image3.png" alt="Description 3" class="img-fluid mb-5">
             <p class="fw-bold"></p>
           </div>
         </div>
         <!-- Picture 4 -->
-        <div class="col-md-3 text-center">
+        <div class="col-md-3 text-center img-down">
           <div class="p-3">
             <img src="./img/image4.png" alt="Description 4" class="img-fluid mb-5">
             <p class="fw-bold"></p>
