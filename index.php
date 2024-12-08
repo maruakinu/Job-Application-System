@@ -213,7 +213,7 @@ require_once("db.php");
     <section id="statistics" class="content-header">
   <div class="container text-center">
     <h1 style="color: #0F0049;">Employers: Hire Our Students!</h1>
-    <button class="cta-button" style="background-color: #FB3535">Get Started</button>
+    <a href="./company/create-job-post.php" class="cta-button" style="background-color: #FB3535">Get Started</a>
   </div>
 </section>
 
