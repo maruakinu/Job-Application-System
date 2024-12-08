@@ -49,7 +49,8 @@ require_once("db.php");
   min-height: 70vh; /* Full height of the viewport */
   padding: 50px; /* Large padding */
   margin: 0 auto; /* Center align the container horizontally */
-  background-color: #FFC189; /* Optional background color */
+  background-color: rgba(255, 165, 0, 0.5); /* 50% transparent */
+
 }
 
 #statistics h1 {
