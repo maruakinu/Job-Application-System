@@ -110,7 +110,7 @@ require_once("db.php");
             <a href="#company" style="color: black;">News</a>
           </li>
           <li>
-            <a href="#about" style="color: black;">About Us</a>
+            <a href="about.php" style="color: black;">About</a>
           </li>
           <?php if(empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
           <li>

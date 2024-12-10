@@ -61,9 +61,9 @@ require_once("db.php");
           <li>
             <a href="login.php" style="color: black;">Login</a>
           </li>
-          <li>
+          <!-- <li>
             <a href="sign-up.php" style="color: black;">Sign Up</a>
-          </li>  
+          </li>   -->
           <?php } else { 
 
             if(isset($_SESSION['id_user'])) { 

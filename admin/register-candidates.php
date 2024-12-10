@@ -165,7 +165,7 @@ if(empty($_SESSION['id_admin'])) {
                     Password Mismatch!! 
                   </div>
               <div class="form-group">
-                <input class="form-control input-lg" type="text" id="contactno" name="contactno" minlength="10" maxlength="10" onkeypress="return validatePhone(event);" placeholder="Phone Number">
+                <input class="form-control input-lg" type="text" id="contactno" name="contactno" minlength="10" maxlength="11" onkeypress="return validatePhone(event);" placeholder="Phone Number">
               </div>
               <div class="form-group">
                 <textarea class="form-control input-lg" rows="4" id="address" name="address" placeholder="Address"></textarea>
